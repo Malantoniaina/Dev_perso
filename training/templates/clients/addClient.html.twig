@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}client{% endblock %}
+
+{% block body %}
+    <h1>
+        {% if isEdit is defined %}
+            modifier
+        {% else %}
+            ajouter
+        {% endif %}
+    </h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">
+            {% if isEdit is defined %}
+                modifier
+            {% else %}
+                ajouter
+            {% endif %}
+        </button>
+    {{ form_end(form) }}
+{% endblock %}

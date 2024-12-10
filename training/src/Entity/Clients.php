@@ -6,6 +6,8 @@ use App\Repository\ClientsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: ClientsRepository::class)]
 class Clients
@@ -15,18 +17,23 @@ class Clients
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank(message: 'Le nom ne peut pas être vide.')]
     #[ORM\Column(length: 100)]
     private ?string $nom = null;
 
+    #[Assert\NotBlank(message: "L'email ne peut pas être vide.")]
     #[ORM\Column(length: 30)]
     private ?string $email = null;
 
+    #[Assert\NotBlank(message: "L'adresse ne peut pas être vide.")]
     #[ORM\Column(length: 40)]
     private ?string $adresse = null;
 
-    #[ORM\Column(length: 12)]
+    #[Assert\NotBlank(message: 'Le téléphone ne peut pas être vide.')]
+    #[ORM\Column(length: 13)]
     private ?string $telephone = null;
 
+    #[Assert\NotBlank(message: 'Le cin ne peut pas être vide.')]
     #[ORM\Column(length: 12)]
     private ?string $cin = null;
 

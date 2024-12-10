@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+    <a href="{{ path('app_client_add') }}">
+        ajouter
+    </a><br/>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>CIN</th>
+                <th>modifier</th>
+                <th>supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+                <tr>
+                    <td>{{client.nom}}</td>
+                    <td>{{client.email}}</td>
+                    <td>{{client.adresse}}</td>
+                    <td>{{client.telephone}}</td>
+                    <td>{{client.cin}}</td>
+                    <th>
+                        <a href="{{ path('app_client_update', {'id': client.id}) }}">
+                            modifier
+                        </a>
+                    </th>
+                    <th>
+                        <a href="{{ path('app_client_delete', {'id': client.id}) }}">
+                            supprimer
+                        </a>
+                    </th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
