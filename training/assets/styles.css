@@ -1,4 +1,0 @@
-/* Directives qui importent les styles de base, les composants et les utilitaires de Tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

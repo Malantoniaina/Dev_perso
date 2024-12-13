@@ -4,11 +4,10 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    
 </style>
 
-<div class="example-wrapper">
+<div class="">
     <h1>Hello {{ controller_name }}! ✅</h1>
     <a href="{{ path('app_client_add') }}">
         ajouter
@@ -40,9 +39,11 @@
                         </a>
                     </th>
                     <th>
-                        <a href="{{ path('app_client_delete', {'id': client.id}) }}">
-                            supprimer
-                        </a>
+                        <button>
+                            <a href="{{ path('app_client_delete', {'id': client.id}) }}" class="">
+                                supprimer
+                            </a>
+                        </button>
                     </th>
                 </tr>
             {% endfor %}
